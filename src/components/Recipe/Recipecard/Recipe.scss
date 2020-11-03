@@ -1,0 +1,44 @@
+.col-lg-4{
+    display: inline-flex;
+}
+.recipeCard{
+    
+    box-shadow: 3px 3px 10px rgba(191, 191, 191, 0.7);
+    border-radius: 5px;
+    margin-bottom: 30px;
+    .img-container{
+        width: 100%;
+        position: relative;
+        background-color:#bfbfbf ;
+        border-radius: 5px 5px 0;
+        img{
+            width: 100%;
+            border-radius: 5px 5px 0;
+        }
+        p{
+            color:#fff;
+            font-size:14px;
+            position: absolute;
+            bottom: 10px;
+        }
+    } 
+    .title-container{
+        padding: 15px 10px;
+        h5{
+            color:#222;
+            font-size: 14px;
+        }
+    }
+    
+    .popup{
+        position: absolute;
+        right: 10px;
+        top:10px;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        cursor: pointer;
+        background-color: brown;
+    }
+
+}

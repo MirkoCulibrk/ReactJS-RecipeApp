@@ -1,0 +1,17 @@
+.ingredent{
+    font-size: 14px;
+    padding: 5px 8px;
+    background-color: #fff;
+    color:#191919;
+    width: 60px;
+    display: inline-flex;
+    border-radius: 10px;
+    text-align: center;
+    margin-right: 10px;
+    cursor: pointer;
+    justify-content: center;
+    .icon{
+        margin-left: 10px;
+        font-size: 14px;
+    }
+}
