@@ -2,12 +2,10 @@ import React, { Fragment } from 'react'
 import Recipe from './Recipecard/Recipe';
 import './RecipeList.scss';
 const RecipeList = ({recepies,loading,favoriteRecipes}) => {
-    console.log(favoriteRecipes);
     const fetchRecepies=Object.values(recepies);
-    console.log(fetchRecepies);
     let favoriteItemsList,recipeListItems;
     if(loading){
-        favoriteItemsList=null
+        favoriteItemsList=null;
     }else if(favoriteRecipes.length>0){
         favoriteItemsList=(
             <Fragment>
@@ -18,15 +16,23 @@ const RecipeList = ({recepies,loading,favoriteRecipes}) => {
                             key={recipe.id}
                             title={recipe.title}
                             id={recipe.id}
-                            missingIngredient={recipe.missedIngredient}
+                            missingFoodIngredients={recipe.missedIngredients}
                         ></Recipe>
                         )
                 })}
             </Fragment>
         )
     }
+
     //dodati loading deo
-    if(fetchRecepies.length>0){
+    if(loading || fetchRecepies===null){
+        let placeHolder=[];
+        for (let i=9;i<9;i++){
+            placeHolder.push(<div className="col-lg-4"><div className="recipeCard" key={i}></div></div>)
+        }
+       recipeListItems=<Fragment>{placeHolder}</Fragment>
+       return <p className="text-center">Loading...</p>
+    }else if(fetchRecepies.length>0){
         recipeListItems=(
             <Fragment>
                     {fetchRecepies.map((recipe)=>{
@@ -36,7 +42,7 @@ const RecipeList = ({recepies,loading,favoriteRecipes}) => {
                             key={recipe.id}
                             title={recipe.title}
                             id={recipe.id}
-                            missingIngredient={recipe.missedIngredient}
+                            missingFoodIngredients={recipe.missedIngredients}
                         ></Recipe>
                         )
                     })}

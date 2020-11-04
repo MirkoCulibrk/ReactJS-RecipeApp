@@ -1,9 +1,9 @@
 import React,{ useContext, useEffect, useState,} from 'react'
 import {GlobalContext} from '../Logic/GlobalState';
-import hearthFull from '../../images/hearthfull.png';
-import hearthEmpty from '../../images/hearthempty.png';
+import hearthFull from '../../images/hearthfull.svg';
+import hearthEmpty from '../../images/hearthempty.svg';
 import './FavoriteRecipe.scss';
-const FavoriteRecepie = ({id,title,src}) => {
+const FavoriteRecepie = ({id,title,src,missedFood}) => {
     const [fave,setFave]=useState(false);
     const {favorite,deleteFavorite,addFavorite}=useContext(GlobalContext);
     
@@ -19,7 +19,8 @@ const FavoriteRecepie = ({id,title,src}) => {
         const newFavorite={
             id,
             title,
-            src
+            src,
+            missedIngredients: missedFood
         };
         if(!favorite.some(favorite=>favorite.id===id)){
             addFavorite(newFavorite);
@@ -29,7 +30,7 @@ const FavoriteRecepie = ({id,title,src}) => {
     } 
     return (
         <>
-            <img  onClick={addToFavorites} src={fave?hearthFull:hearthEmpty} className="favorite"></img>
+            <img  onClick={addToFavorites} src={fave?hearthFull:hearthEmpty} className="favorite" alt="hearth"></img>
         </>
     )
 }

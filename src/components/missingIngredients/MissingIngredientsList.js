@@ -1,10 +1,13 @@
 import React from 'react'
-
-const MissingIngredientsList = () => {
+import MissingIngredient from './MissingIngredent';
+const MissingIngredientsList = ({missingIngredients}) => {
     return (
-        <div>
+        <>
+            {missingIngredients.map(ingredient=>{
+                return <MissingIngredient key={ingredient.id} ingredient={ingredient.name}></MissingIngredient>
+            })}
             
-        </div>
+        </>
     )
 }
 

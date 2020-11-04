@@ -1,13 +1,11 @@
 import React from 'react'
 import Col from 'react-bootstrap/Col';
-import Button from 'react-bootstrap/Button';
 import Addingredent from '../../AddIngredent/AddIngredent';
 import IngredentList from '../../IngredentsList/IngredentList';
 import RecipeList from '../../Recipe/RecipeList';
 import './Content.scss';
 
-const Content = ({api_call,loading,recepies,favoriteRecipes}) => {
-    console.log(api_call);
+const Content = ({api_call,loading,recepies,favoriteRecipes,message}) => {
         return (
         <>
             <Col lg="5" className="background"> 
@@ -23,9 +21,12 @@ const Content = ({api_call,loading,recepies,favoriteRecipes}) => {
             <Col lg="7">
                 <div className="info-container">
                     <h2>Recipes</h2>
-                    <Button variant="primary" onClick={api_call} disabled={loading} className="btn-fetch">{loading?'Finding Recepes':'Find Recipes'}</Button>
+                    <div className="btn-container">
+                        <a onClick={api_call} disabled={loading} className="btn-fetch">{loading?'Finding Recepes':'Find Recipes'}</a>
+                    </div>
                 </div>
                 <Col lg="12">
+                    <p className="text">{message}</p>
                     <RecipeList
                         recepies={recepies}
                         loading={loading}
