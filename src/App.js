@@ -7,7 +7,6 @@ function App() {
   return (
     <GlobalProvider>
       <div className="font-body lg:flex">
-
         <Main />
       </div>
     </GlobalProvider>
