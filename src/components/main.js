@@ -22,7 +22,7 @@ const Main = () => {
         setLoading(true);
         setMessage('');
          try{
-            const recepies= await Axios.get(`https://api.spoonacular.com/recipes/findByIngredients?ingredients=${ingredientsFetch}&number=5&apiKey=51eb63a4bcd24e4799b87c09af08d3dc`);
+            const recepies= await Axios.get(`https://api.spoonacular.com/recipes/findByIngredients?ingredients=${ingredientsFetch}&number=5&apiKey=${process.env.REACT_APP_UNSPLASH_KEY}`);
             setFavoriteRecipes(favorite);
             const favoriteIds=favoriteRecipes.map(fave=>fave.id).join(', ');
             const filteredRecipes=recepies.data.filter(recipe=>

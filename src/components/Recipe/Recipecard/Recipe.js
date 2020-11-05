@@ -22,7 +22,7 @@ const Recipe = ({src,id,title,missingFoodIngredients}) => {
         setOpen(true);
         setError(false);
         try{
-            const results=await axios.get(`https://api.spoonacular.com/recipes/${id}/information?includeNutrition=false&apiKey=51eb63a4bcd24e4799b87c09af08d3dc`);
+            const results=await axios.get(`https://api.spoonacular.com/recipes/${id}/information?includeNutrition=false&apiKey=${process.env.REACT_APP_UNSPLASH_KEY}`);
             setRecipe(results.data);
             setLoading(false);
         }

@@ -4,13 +4,13 @@ import Addingredent from '../../AddIngredent/AddIngredent';
 import IngredentList from '../../IngredentsList/IngredentList';
 import RecipeList from '../../Recipe/RecipeList';
 import './Content.scss';
-
+import logo from '../../../images/logo.png';
 const Content = ({api_call,loading,recepies,favoriteRecipes,message}) => {
         return (
         <>
             <Col lg="5" className="background"> 
                     <div className="logo-container">
-                        <img src="/images/logo.png" alt="logo"></img>
+                        <img src={logo} alt="logo"></img>
                     </div>
                     <div className="text-container">
                         <h4>Discover what you can make with what you got in your fridge or pantry</h4>
